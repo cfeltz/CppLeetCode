@@ -4,56 +4,58 @@
 #include <vector>
 #include <string>
 #include <sstream>
-
+#include "../Test.h"
+#include "TwoSum_Test.h"
 // so the goal here is to read the line
 // then parse the ints from the line
 // if its the second line we know that it's just one int
 
-
-bool twoSumTest(){
-    std::ifstream istrm("testinput.txt"); 
+void TwoSum_Test::twoSumTest(){
+    std::ifstream istrm("TwoSum_Input.txt"); 
     std::vector<int> nums;
-    int lineNumber = 0;
+    std::vector<int> expected;
     int target;
-    
+    int flag = 0;
+
     while(!istrm.eof()){
-        if(lineNumber == 0){
-            // this will parse the input of the string
-            std::string line;
+        std::string line; 
+        std::getline(istrm, line);
+        Test t;
+        if(flag == 0 && line.compare("Input") == 1){
+            // read the next line?
             std::getline(istrm, line);
+            while(line.compare("Expected") != 1){
+                // line = 2 7 3 5
+                nums = t.constructVectorFromLine(line); 
 
-            const char delimiter = ' ';
-            std::stringstream ss(line); 
-
-            std::string s; 
-            while(std::getline(ss, s, ' ')){
-                int temp = std::stoi(s);
-                nums.push_back(temp);
+                istrm >> target;
             }
-        }
-        else{
-            istrm >> target; 
+
+            flag = 1;
         }
 
-        lineNumber++;
+        std::getline(istrm, line);
+        expected = t.constructVectorFromLine(line); 
     }
 
-    for(int i = 0; i < nums.size(); i++){
-        std::cout << nums.at(i) << " ";
-    }
-    std::cout << "\n" << target << "\n";
+    std::vector<int> results;
     TwoSum ts;
-    std::vector<int> result = ts.twoSum(nums, target);
-
-    for(int i = 0; i < result.size(); i++){
-        std::cout << result.at(i) << " ";
+    results = ts.twoSum(nums, target);
+    
+    if(expected == results){
+        std::cout << "Pass!\n";
+    }
+    else{
+        std::cout << "Fail!\n";
     }
 
-    std::cout << "\n";    
-
-    return true;
-}
+    std::cout << "nums: ";
+    Test::printVector(nums);
+    std::cout << "expected: ";
+    Test::printVector(expected);
+};
 
 int main(){
-    twoSumTest();
-}
+    TwoSum_Test tst;
+    tst.twoSumTest();
+};

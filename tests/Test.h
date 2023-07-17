@@ -1,12 +1,9 @@
 #pragma once
-#include <iostream>
-#include <fstream>
 #include <vector>
 #include <string>
-#include <sstream>
-
 
 class Test { 
     public:
-        bool twoSumTest();
+        std::vector<int> constructVectorFromLine(std::string line);
+        static void printVector(std::vector<int> nums);
 };

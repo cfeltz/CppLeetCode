@@ -2,7 +2,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <stdio.h>
-#include "twosum.h"
+#include "TwoSum.h"
 
 std::vector<int> TwoSum::twoSum(std::vector<int>&nums, int target) {
     // create an unordered_set of ints
@@ -20,7 +20,7 @@ std::vector<int> TwoSum::twoSum(std::vector<int>&nums, int target) {
     }
     
     return std::vector<int>{};    
-}
+};
 
 // iterating over the list
 // { 1, 8, 3, 5, 7 }
