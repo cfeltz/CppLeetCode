@@ -7,7 +7,7 @@ all: twosum
 # TwoSum
 TWOSUM_TARGET = TwoSum_Test.exe
 TWOSUM_TEST_SRC = TwoSum_Test.cpp 
-TWOSUM_SRC_DIR = ../../TwoSum/
+TWOSUM_SRC_DIR = ../../Problems/TwoSum/
 TWOSUM_SRC = $(TWOSUM_SRC_DIR)TwoSum.cpp
 TWOSUM_OBJ = $(TWOSUM_SRC:.cpp=.o)
 

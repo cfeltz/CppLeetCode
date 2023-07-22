@@ -30,4 +30,7 @@ static void Test::printVector(std::vector<int> v){
 int main(){
     TwoSum_Test tst;
     tst.twoSumTest();
+
+    AddTwoNumbers_test atnt
+    atnt.addTwoNumbersTest();
 };

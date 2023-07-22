@@ -1,15 +1,15 @@
-#include "../../TwoSum/TwoSum.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <sstream>
-#include "../Test.h"
 #include "TwoSum_Test.h"
+#include "../Test.h"
+#include "../../Problems/TwoSum/TwoSum.h"
+
 // so the goal here is to read the line
 // then parse the ints from the line
 // if its the second line we know that it's just one int
-
 void TwoSum_Test::twoSumTest(){
     std::ifstream istrm("TwoSum_Input.txt"); 
     std::vector<int> nums;
